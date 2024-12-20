@@ -1,0 +1,57 @@
+import time
+
+def main_menu():
+  print("\nWelcome to Airline Assistant")
+  print("1. Search for the flights")
+  print("2. Make a reservation")
+  print("3. Cancel a booking")
+  print("4. Exit")
+
+  choice=input("Please select between (1-4)")
+  return choice
+
+def search_flights():
+  print("\nFlight Search")
+  origin=input("Enter the departure city: ")
+  destination=input("Enter the destination: ")
+  date=input("Enter the travel date(YYYY-MM-DD): ")
+  print(f"\nSearching for flights from {origin} to {destination} on {date}")
+
+  time.sleep(2)
+  print("Some available options:")
+  print("1. Flight AA123 - 10:00 AM - $300")
+  print("2. Flight BB456 - 02:00 PM - $350")
+  print("3. Flight CC789 - 08:00 PM - $400")
+
+def make_reservation():
+  print("\nMake a Reservation")
+  flight_number=input("Enter the flight number: ")
+  name=input("Enter your name: ")
+  print(f"\nBooking flight  {flight_number} for {name}...")
+  time.sleep(2)
+  print("The reservation has been created.")
+
+def cancel_booking():
+  print("\nCancel a Booking")
+  booking_id=input("Enter the booking ID: ")
+  print(f"\nProcessing cancellation for booking ID {booking_id}...")
+  time.sleep(2)
+  print("Your booking has been canceled!")
+
+def chatbot():
+  while True:
+    while True:
+      choice= main_menu()
+      if choice=="1":
+        search_flights()
+      elif choice=="2":
+        make_reservation()
+      elif choice=="3":
+        cancel_booking()
+      elif choice=="4":
+        print("\nThank you for using the Airline Assistant Chatbot. Have a great day!")
+        break
+      else:
+        print("\nInvalid option. Please try again.")
+
+chatbot()
